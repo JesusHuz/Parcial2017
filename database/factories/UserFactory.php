@@ -28,7 +28,7 @@ $factory->define(App\Propietario::class, function (Faker $faker) {
     return [
         'nombre' => $faker->name,
         'cedula' => $faker->unique()->numberBetween(1,200),
-        'descripcion' => $faker->paragraph(),
+        'descripcion' => $faker->sentence(2),//$faker->paragraph(),
         'telefono' => $faker->numberBetween(1,999),
         'email' => $faker->unique()->safeEmail,
        // 'user_id' => $faker->numberBetween(1,10);

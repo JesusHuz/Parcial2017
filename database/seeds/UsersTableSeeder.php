@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new \App\User();
+
         $user = new \App\User();
 
         //for ($i=0; $i < 50; $i++) { 

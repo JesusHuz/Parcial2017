@@ -21,9 +21,16 @@ class PropietariosControlador extends Controller
         $this->middleware('auth');//que siempre verifique que este autorizado
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $title = 'Propietarios';
+        $propietarios = Propietario::where('user_id', auth()->user()->id);//solo movimientos del usuario en secion
+        //$propietarios = Propietario::all();
+
+        $propietarios = $propietarios->orderBy('nombre', 'desc')->paginate(5);//paginado viene 15 pro defecto(numero)
+        //$propietarios= Propietario::orderBy('nombre','desc')->get()->paginate();
+
+        return view('propietarios.index', compact('propietarios','title'));
     }
 
     /**
