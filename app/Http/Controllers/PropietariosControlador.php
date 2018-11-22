@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Propietario;
 use App\Http\Requests\StorePropietario;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class PropietariosControlador extends Controller
 {
@@ -13,6 +16,11 @@ class PropietariosControlador extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');//que siempre verifique que este autorizado
+    }
+
     public function index()
     {
         //
@@ -45,8 +53,8 @@ class PropietariosControlador extends Controller
         $propietario->descripcion  = $request->get('descripcion');
         $propietario->telefono  = $request->get('telefono');
 
-        $propietario->email  = auth()->user->email;
-        $propietario->user_id  = auth()->user->id;
+        $propietario->email  = auth()->user()->email;
+        $propietario->user_id  = auth()->user()->id;
 
         $propietario->save();
 

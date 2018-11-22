@@ -75,23 +75,7 @@
     @endif
 </div>
 
-<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-    {!! Form::label('email', 'Email') !!}
 
-    {!! Form::email('email',
-        null,
-        [
-            'required',
-            'class' => 'form-control'
-        ]
-    ) !!}
-
-    @if($errors->has('email'))
-        <span class="help-block">
-            <strong>{{ $errors->first('email') }}</strong>
-        </span>
-    @endif
-</div>
 
 <div class="form-group">
     <button type="submit" class="btn btn-primary">Guardar</button>

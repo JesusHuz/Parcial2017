@@ -1,4 +1,4 @@
-@extends('layouts')
+@extends('layouts.app')
 
 @section('content')
     <h1>Detalles del Propietario {{ $propietario->id }}</h1>
@@ -25,6 +25,4 @@
             <td>{{ $propietario->descripcion }}</td>
         </tr>
     </table>
-    <!--dsfsdfs-->
 @endsection
-
