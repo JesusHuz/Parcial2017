@@ -25,5 +25,6 @@
             <td>{{ $propietario->descripcion }}</td>
         </tr>
     </table>
+    <!--dsfsdfs-->
 @endsection
 
